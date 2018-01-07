@@ -83,7 +83,7 @@ class TicTacToe
     until over? == true
       turn
     end
-    (won?(board) != false)? (puts "Congratulations #{winner(board)}!" ): (puts "Cat's Game!")
+    (won? != false)? (puts "Congratulations #{winner}!" ): (puts "Cat's Game!")
   end
 
   def current_player
