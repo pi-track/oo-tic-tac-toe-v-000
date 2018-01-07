@@ -28,7 +28,7 @@ class TicTacToe
 
   # code your #valid_move? method here
   def valid_move?(index)
-    (position_taken?(@board, index) == true || index.between?(0,8) == false)? false : true
+    (position_taken?(index) == true || index.between?(0,8) == false)? false : true
   end
 
   def turn
