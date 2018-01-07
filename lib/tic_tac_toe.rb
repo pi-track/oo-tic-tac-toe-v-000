@@ -39,9 +39,9 @@ class TicTacToe
       move(index, current_player)
     else
       puts "That's not valid input"
-      turn(board)
+      turn
     end
-    display_board(board)
+    display_board
   end
 
   def current_player
