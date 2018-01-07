@@ -53,9 +53,9 @@ class TicTacToe
     return @board.select {|index| index != "" && index != " "}.size
   end
 
-  def won?(board)
+  def won?
     WIN_COMBINATIONS.each do |combo|
-      positions = [board[combo[0]],board[combo[1]],board[combo[2]]]
+      positions = [@board[combo[0]],@board[combo[1]],@board[combo[2]]]
         if (positions[0] == "X" && positions[1] == "X" && positions[2] == "X") || (positions[0] == "O" && positions[1] == "O" && positions[2] == "O")
           return combo
         end
@@ -63,25 +63,25 @@ class TicTacToe
     return false
   end
 
-  def full?(board)
-    board.all? {|position| !(position.nil? || position == " ")}
+  def full?
+    @board.all? {|position| !(position.nil? || position == " ")}
   end
 
-  def draw?(board)
-    (won?(board) == false && full?(board) == true)? true : false
+  def draw?
+    (won? == false && full? == true)? true : false
   end
 
-  def over?(board)
-    (won?(board) != false || draw?(board) == true)? true : false
+  def over?
+    (won? != false || draw? == true)? true : false
   end
 
-  def winner(board)
-    won?(board) == false ?  nil : board[won?(board)[0]]
+  def winner
+    won? == false ?  nil : @board[won?[0]]
   end
 
-  def play(board)
-    until over?(board) == true
-      turn(board)
+  def play
+    until over? == true
+      turn
     end
     (won?(board) != false)? (puts "Congratulations #{winner(board)}!" ): (puts "Cat's Game!")
   end
